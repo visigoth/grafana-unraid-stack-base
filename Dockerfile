@@ -13,10 +13,7 @@ RUN echo "$(date "+%d.%m.%Y %T") Built from ${FRM}:${TAG}" >> /build.info
 RUN rm -Rf /testdasi \
     && mkdir -p /temp \
     && cd /temp \
-    && curl -sL "https://github.com/testdasi/static-ubuntu/archive/main.zip" -o /temp/temp.zip \
-    && unzip /temp/temp.zip \
-    && rm -f /temp/temp.zip \
-    && mv /temp/static-ubuntu-main /testdasi \
+    && curl -sL "https://github.com/visigoth/static-ubuntu/archive/main.zip" | unzip -d /testdasi - \
     && rm -Rf /testdasi/deprecated
 
 # add correct key to verify package repository signature
